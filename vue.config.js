@@ -1,4 +1,8 @@
 module.exports = {
   publicPath: '/frontend',
-  outputDir: "../../src/main/resources/static/frontend"
+  outputDir: "../../src/main/resources/static/frontend",
+
+  transpileDependencies: [
+    'vuetify'
+  ]
 }

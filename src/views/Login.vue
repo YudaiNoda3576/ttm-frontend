@@ -1,14 +1,14 @@
 <template>
     <div>
         <v-main>
-            <v-card :tile="$vuetify.breakpoint.sm || $vuetify.breakpoint.xs" class="mx-auto fill-width" flat max-width="540">
+            <v-card :tile="$vuetify.breakpoint.sm || $vuetify.breakpoint.xs" elevation="2" class="mx-auto fill-width" flat max-width="540" height="300">
                 <div class="pt-6">
-                    <div>
+                    <v-card-title>ログイン</v-card-title>
+                    <div class="forms">
                         <v-text-field v-model="emailAddress" :rules="[emailRules.required, emailRules.regex]" autofocus dense height="48px" outlined placeholder="メールアドレスを入力してください"></v-text-field>
-    
                         <v-text-field v-model="password" :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'" :rules="[passwordRules.required]" :type="passwordShow ? 'text' : 'password'" dense height="48px" name="input-password" outlined placeholder="パスワードを入力してください" @click:append="passwordShow = !passwordShow"></v-text-field>
                     </div>
-                    <v-btn @click="login">ログイン</v-btn>
+                    <v-btn @click="login" color="#7b68ee">ログイン</v-btn>
                 </div>
             </v-card>
         </v-main>
@@ -43,7 +43,6 @@ export default {
                 emailAddress: this.emailAddress,
                 password: this.password
             });
-            // this.$router.push('/home').catch(err => console.log(`エラー：${err}`));
         }
     },
     computed: {
@@ -61,12 +60,16 @@ export default {
 
 <style scoped>
 .fill-width {
-    top: 100%;
-    left: 31%;
+    top: 50%;
     text-align: center;
 }
 
 .error--text {
     color: red !important;
+}
+
+.forms {
+    width: 80%;
+    margin:0 auto;
 }
 </style>

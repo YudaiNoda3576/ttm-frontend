@@ -3,21 +3,21 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from 'axios'
-import Vuetify from 'vuetify'
+import vuetify from '@/plugins/vuetify'
 
 Vue.config.productionTip = false
 
 axios.defaults.baseURL = '/api';
- 
+
 // Cookieを有効にする。
 axios.defaults.withCredentials = true;
 
-Vue.use(Vuetify)
+Vue.use(vuetify)
 
 new Vue({
   router,
   store,
   axios,
-  vuetify : new Vuetify(),
+  vuetify,
   render: h => h(App)
 }).$mount('#app')

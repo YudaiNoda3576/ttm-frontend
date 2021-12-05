@@ -8,6 +8,9 @@
                         <v-text-field v-model="emailAddress" :rules="[emailRules.required, emailRules.regex]" autofocus dense height="48px" outlined placeholder="メールアドレスを入力してください"></v-text-field>
                         <v-text-field v-model="password" :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'" :rules="[passwordRules.required]" :type="passwordShow ? 'text' : 'password'" dense height="48px" name="input-password" outlined placeholder="パスワードを入力してください" @click:append="passwordShow = !passwordShow"></v-text-field>
                     </div>
+                    <div v-if="hasError" class="error--text">
+                        ログインに失敗しました。
+                    </div>
                     <v-btn @click="login" color="#7b68ee">ログイン</v-btn>
                 </div>
             </v-card>
@@ -34,25 +37,33 @@ export default {
             passwordRules: {
                 required: value =>
                     !!value || 'パスワードは必須です',
-            }
+            },
+            hasError: false
         };
     },
     methods: {
         login() {
-            this.$store.dispatch('auth/login', {
+            this.$store.dispatch('login', {
                 emailAddress: this.emailAddress,
-                password: this.password
+                password: this.password,
+
             });
         }
     },
     computed: {
         isLogedIn() {
             return this.$store.state.emailAddress
+        },
+        isError() {
+            return this.$store.state.error
         }
     },
     watch: {
         isLogedIn() {
-            this.$router.push('/home').catch(err => console.log(`エラー：${err}`));
+            this.$router.push('/home')
+        },
+        isError() {
+            this.hasError = true
         }
     }
 };

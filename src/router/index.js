@@ -43,7 +43,7 @@ router.beforeEach((to, from, next) => {
   // 非公開コンポーネントで未ログインの場合ログイン画面にリダイレクト
   if (
     to.matched.some(
-      record => (record.meta.isPublic || Store.getters.isAuthenticated)
+      record => (record.meta.isPublic || Store.state.auth.getters)
     )
   ) {
     next();

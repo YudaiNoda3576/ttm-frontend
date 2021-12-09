@@ -41,9 +41,11 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   // 非公開コンポーネントで未ログインの場合ログイン画面にリダイレクト
+  console.log(Store)
   if (
     to.matched.some(
-      record => (record.meta.isPublic || Store.state.auth.getters)
+      // TODO:Store.stateのアクセス方法が不明確なので今後修正を行うこと
+      record => (record.meta.isPublic || Store.state)
     )
   ) {
     next();

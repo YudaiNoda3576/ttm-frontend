@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 
 export default {
     name: 'Home',
@@ -31,17 +32,15 @@ export default {
             })
         },
         logout() {
-            this.$store.dispatch('logout')
+            this.$store.dispatch('auth/logout')
         }
     },
-    computed: {
-        isLogout() {
-            return this.$store.state.emailAddress
-        }
-    },
+    computed: mapState({
+        isLogout: state => state.auth.emailAddress
+    }),
     watch: {
-        isLogout() {
-            this.$router.push('/').catch(err => console.log(`エラー：${err}`));
+        isLogout: function(){
+            this.$router.push('/');
         }
     }
 

@@ -1,34 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
-import Store from '../store/index.js'
+import store from '../store/index.js'
+import {
+  layout,
+  route,
+} from '@/util/routes'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    name: 'Login',
-    component: Login,
-    meta: {isPublic: true}
-  },
-  {
-    path: '/home',
-    name: 'Home',
-    component: Home,
-    meta: {isPublic: false}
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-    meta: {isPublic: false}
-  }
-]
-
 const router = new VueRouter({
-  routes,
   mode: 'history',
   base: process.env.BASE_URL,
   scrollBehavior: (to, from, savedPosition) => {
@@ -37,15 +18,26 @@ const router = new VueRouter({
 
     return { x: 0, y: 0 }
   },
+  routes: [
+    {
+          path: '/',
+          name: 'Login',
+          component: Login,
+          meta: {isPublic: true}
+    },
+    layout('Default', [
+      route('Home', null, '/home', false)
+    ])
+  ]
 })
 
 router.beforeEach((to, from, next) => {
+  console.log(store)
   // 非公開コンポーネントで未ログインの場合ログイン画面にリダイレクト
-  console.log(Store)
   if (
     to.matched.some(
       // TODO:Store.stateのアクセス方法が不明確なので今後修正を行うこと
-      record => (record.meta.isPublic || Store.state)
+      record => (record.meta.isPublic || store.state)
     )
   ) {
     next();

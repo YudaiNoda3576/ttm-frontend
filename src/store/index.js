@@ -1,13 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {auth} from './modules/auth'
+import {auth, app} from './modules/'
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   modules: {
-    auth
-  }
+    auth,
+    app
+  },
 });
 
+store.dispatch('app/init')
 
+export const ROOT_DISPATCH = Object.freeze({ root: true })
+
+export default store 

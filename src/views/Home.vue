@@ -11,7 +11,7 @@
 import { mapState } from 'vuex';
 
 export default {
-    name: 'Home',
+    name: 'HomeView',
     data(){
         return{
             text: null,

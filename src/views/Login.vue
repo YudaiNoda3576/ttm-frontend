@@ -52,8 +52,8 @@ export default {
         }
     },
     computed: mapState({
-        isLogedIn: state => state.auth.emailAddress,
-        isError: state => state.auth.error
+        isLogedIn: state => state.auth.state.emailAddress,
+        isError: state => state.auth.state.error
     }),
     watch: {
         isLogedIn: function() {

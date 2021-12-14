@@ -20,6 +20,9 @@ export default {
     created() {
         this.getApi();
     },
+    props: {
+
+    },
     methods: {
         getApi() {
             const _this = this;

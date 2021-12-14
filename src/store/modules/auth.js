@@ -9,20 +9,20 @@ const state = {
 
 const getters = {
   isAuthenticated: state => {
-    return state.emailAddress != null;
+    return state.state.emailAddress != null;
   },
 }
 
 const mutations = {
   updateId(state, emailAddress) {
-    state.emailAddress = emailAddress;
+    state.state.emailAddress = emailAddress;
   },
   resetData(state) {
-    state.emailAddress = null;
-    state.error = false;
+    state.state.emailAddress = null;
+    state.state.error = false;
   },
   updateError(state) {
-    state.error = true;
+    state.state.error = true;
   }
 }
 

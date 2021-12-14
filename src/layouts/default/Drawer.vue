@@ -7,6 +7,7 @@
     mini-variant-width="80"
     app
     width="260"
+    color="#424242"
   >
 
     <div class="px-2">

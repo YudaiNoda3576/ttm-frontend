@@ -9,7 +9,7 @@ const state = {
   items: [
     {
       title: 'Home',
-      icon: 'mdi-account',
+      icon: 'mdi-home-circle-outline',
       to: '/home',
     },
   ],

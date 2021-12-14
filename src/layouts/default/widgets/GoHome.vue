@@ -3,10 +3,10 @@
     class="ml-2"
     min-width="0"
     text
-    to="/"
+    to="/home"
     exact
   >
-    <v-icon>mdi-view-dashboard</v-icon>
+    <v-icon>mdi-home</v-icon>
   </v-btn>
 </template>
 

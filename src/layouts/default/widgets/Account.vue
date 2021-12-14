@@ -49,10 +49,10 @@
 
     data: () => ({
       profile: [
-        { title: 'Profile' },
-        { title: 'Settings' },
+        { title: 'マイページ' },
+        { title: '設定' },
         { divider: true },
-        { title: 'Log out' },
+        { title: 'ログアウト' },
       ],
     }),
   }

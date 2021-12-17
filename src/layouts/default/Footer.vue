@@ -6,13 +6,17 @@
     app
     inset
   >
+  <copyright />
   </v-footer>
 </template>
 
 <script>
 
-
+  import Copyright from '../../components/Copyright.vue'
   export default {
     name: 'DefaultFooter',
+    components:{
+      Copyright
+    }
   }
 </script>

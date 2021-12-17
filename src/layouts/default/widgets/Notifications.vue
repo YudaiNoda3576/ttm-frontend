@@ -46,9 +46,12 @@
 </template>
 
 <script>
+ import AppBarItem from '../../../components/app/BarItem.vue'
   export default {
     name: 'DefaultNotifications',
-
+    components:{
+      AppBarItem
+    },
     data: () => ({
       notifications: [
         'Mike John Responded to your email',

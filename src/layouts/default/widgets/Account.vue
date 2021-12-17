@@ -34,25 +34,29 @@
         <app-bar-item
           v-else
           :key="`item-${i}`"
-          to="/"
         >
           <v-list-item-title v-text="p.title" />
         </app-bar-item>
       </template>
+      <logout-btn></logout-btn>
     </v-list>
   </v-menu>
 </template>
 
 <script>
+  import AppBarItem from '../../../components/app/BarItem.vue'
+  import LogoutBtn from '../../../components/LogoutBtn.vue'
   export default {
     name: 'DefaultAccount',
-
+    components: {
+      AppBarItem,
+      LogoutBtn
+    },
     data: () => ({
       profile: [
         { title: 'マイページ' },
         { title: '設定' },
         { divider: true },
-        { title: 'ログアウト' },
       ],
     }),
   }

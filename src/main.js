@@ -11,6 +11,7 @@ axios.defaults.baseURL = '/api';
 
 // Cookieを有効にする。
 axios.defaults.withCredentials = true;
+Vue.prototype.$axios = axios;
 
 Vue.use(vuetify)
 

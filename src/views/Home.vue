@@ -1,15 +1,49 @@
 <template>
-  <hello-world />
+    <div>
+        <h1>Home画面です</h1>
+        <router-link to="/about">about</router-link>
+        <p>API取得値：{{ text }}</p>
+        <v-btn @click="logout" color="#7b68ee">ログアウト</v-btn>
+    </div>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
 
-  export default {
+export default {
     name: 'Home',
-
-    components: {
-      HelloWorld,
+    data(){
+        return{
+            text: null,
+        }
     },
-  }
+    created() {
+        this.getApi();
+    },
+    methods: {
+        getApi() {
+            const _this = this;
+            this.$axios.get('/home')
+            .then(response => {
+                _this.text = response.data
+            })
+            .catch(error => {
+                _this.text = error
+            })
+        },
+        logout() {
+            this.$store.dispatch('logout')
+        }
+    },
+    computed: {
+        isLogout() {
+            return this.$store.state.emailAddress
+        }
+    },
+    watch: {
+        isLogout() {
+            this.$router.push('/').catch(err => console.log(`エラー：${err}`));
+        }
+    }
+
+}
 </script>

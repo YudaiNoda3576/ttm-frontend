@@ -5,7 +5,8 @@ import axios from 'axios'
 Vue.use(Vuex);
 
 const getAuthState = () => ({
-  emailAddress: null
+  emailAddress: null,
+  error: false
 });
 
 export default new Vuex.Store({
@@ -23,7 +24,11 @@ mutations: {
   },
   resetData(state) {
     state.emailAddress = null;
+    state.error = false;
   },
+  updateError(state) {
+    state.error = true;
+  }
 },
 actions: {
   login({ commit }, authData) {
@@ -34,6 +39,9 @@ actions: {
       })
       .then(() => {
         commit('updateId', authData.emailAddress);
+      })
+      .catch(() => {
+        commit('updateError')
       });
   },
   logout({ commit }) {

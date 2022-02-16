@@ -1,16 +1,14 @@
 <template>
     <div>
         <h1>Home画面です</h1>
-        <router-link to="/about">about</router-link>
         <p>API取得値：{{ text }}</p>
-        <v-btn @click="logout" color="#7b68ee">ログアウト</v-btn>
+       
     </div>
 </template>
 
 <script>
-
 export default {
-    name: 'Home',
+    name: 'HomeView',
     data(){
         return{
             text: null,
@@ -18,6 +16,9 @@ export default {
     },
     created() {
         this.getApi();
+    },
+    props: {
+
     },
     methods: {
         getApi() {
@@ -30,20 +31,8 @@ export default {
                 _this.text = error
             })
         },
-        logout() {
-            this.$store.dispatch('logout')
-        }
+       
     },
-    computed: {
-        isLogout() {
-            return this.$store.state.emailAddress
-        }
-    },
-    watch: {
-        isLogout() {
-            this.$router.push('/').catch(err => console.log(`エラー：${err}`));
-        }
-    }
 
 }
 </script>

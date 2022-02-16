@@ -19,6 +19,7 @@
 </template>
   
 <script>
+import {mapState} from 'vuex'
 export default {
     name: 'Login',
     data() {
@@ -43,29 +44,25 @@ export default {
     },
     methods: {
         login() {
-            this.$store.dispatch('login', {
+            this.$store.dispatch('auth/login', {
                 emailAddress: this.emailAddress,
                 password: this.password,
 
             });
         }
     },
-    computed: {
-        isLogedIn() {
-            return this.$store.state.emailAddress
-        },
-        isError() {
-            return this.$store.state.error
-        }
-    },
+    computed: mapState({
+        isLogedIn: state => state.auth.state.emailAddress,
+        isError: state => state.auth.state.error
+    }),
     watch: {
-        isLogedIn() {
+        isLogedIn: function() {
             this.$router.push('/home')
         },
-        isError() {
+        isError: function() {
             this.hasError = true
         }
-    }
+    },
 };
 </script>
 

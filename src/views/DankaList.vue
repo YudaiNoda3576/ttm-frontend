@@ -199,7 +199,8 @@ export default {
   methods: {
     getDanakList() {
       const _this = this;
-      this.$axios.get("/dankaList").then(response => {
+      this.$axios.get("/danka").then(response => {
+        console.log(response.data);
         _this.dankaList = response.data;
       });
     },

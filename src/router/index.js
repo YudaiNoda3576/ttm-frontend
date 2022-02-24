@@ -27,6 +27,9 @@ const router = new VueRouter({
     },
     layout('Default', [
       route('Home', null, '/home', false)
+    ]),
+    layout('Default', [
+      route('DankaList', null, '/danka', false)
     ])
   ]
 })

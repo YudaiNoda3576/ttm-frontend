@@ -6,7 +6,7 @@
     :mini-variant.sync="mini"
     mini-variant-width="80"
     app
-    width="260"
+    width=260
     color="#424242"
   >
 

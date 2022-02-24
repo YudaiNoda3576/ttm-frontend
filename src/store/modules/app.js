@@ -8,10 +8,15 @@ const state = {
   mini: false,
   items: [
     {
-      title: 'Home',
+      title: 'ホーム',
       icon: 'mdi-home-circle-outline',
       to: '/home',
+    },{
+      title: '檀家管理',
+      icon: 'mdi-account-box-multiple',
+      to: '/danka',
     },
+
   ],
 }
 
@@ -19,10 +24,8 @@ const mutations = make.mutations(state)
 
 const actions = {
   ...make.actions(state),
-  init: async ({ dispatch }) => {
-    //
-  },
 }
+
 
 const getters = {}
 

@@ -11,6 +11,6 @@ const store = new Vuex.Store({
   },
 });
 
-store.dispatch('app/init')
+// store.dispatch('app/init')
 
 export default store 

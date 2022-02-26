@@ -216,6 +216,7 @@ export default {
     },
     deleteItemConfirm() {
       this.dankaList.splice(this.editedIndex, 1);
+      this.delete();
       this.closeDelete();
     },
     close() {
@@ -232,6 +233,12 @@ export default {
         this.editedIndex = -1;
       });
     },
+    delete(){
+      const dankaId = this.editedIndex + 1;
+      this.$axios.post(`/danka/delete/${dankaId}`).then(() => {
+        console.log("削除に成功しました");
+      })
+    },
     save() {
       // 編集の場合はif句の処理、新規登録の場合はelse句の処理
       if (this.editedIndex > -1) {
@@ -239,7 +246,7 @@ export default {
         
         Object.assign(this.dankaList[this.editedIndex], this.editedItem);
         
-        this.$axios.post(`/dankaList/update/${dankaId}`, {
+        this.$axios.post(`/danka/update/${dankaId}`, {
         seshuName: this.editedItem.seshuName,
         koshuName: this.editedItem.koshuName,
         koshuName2: this.editedItem.koshuName2,
@@ -252,7 +259,7 @@ export default {
         })
       } else {
         // const _this = this;
-        this.$axios.post(`/dankaList/save`, {
+        this.$axios.post(`/danka/save`, {
           seshuName: this.editedItem.seshuName,
           koshuName: this.editedItem.koshuName,
           koshuName2: this.editedItem.koshuName2,

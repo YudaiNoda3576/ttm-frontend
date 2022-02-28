@@ -37,43 +37,43 @@
                       <v-row>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
-                            v-model="editedItem.seshuName"
+                            v-model="editedItem.dnkSeshuName"
                             label="施主名"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
-                            v-model="editedItem.koshuName"
+                            v-model="editedItem.dnkKoshuName"
                             label="戸主名"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
-                            v-model="editedItem.koshuName2"
+                            v-model="editedItem.dnkKoshuName2"
                             label="戸主名２"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
-                            v-model="editedItem.phonenumber"
+                            v-model="editedItem.dnkPhonenumber1"
                             label="電話番号"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
-                            v-model="editedItem.mailAddress"
+                            v-model="editedItem.dnkEmail1"
                             label="メールアドレス"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
-                            v-model="editedItem.address"
+                            v-model="editedItem.dnkAddress1"
                             label="住所"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
-                            v-model="editedItem.remark"
+                            v-model="editedItem.dnkBikou1"
                             label="備考"
                           ></v-text-field>
                         </v-col>
@@ -162,22 +162,22 @@ export default {
     ],
     editedIndex: -1,
     editedItem: {
-      seshuName: "",
-      koshuName: "",
-      koshuName2: "",
-      address: "",
-      phonenumber: "",
-      mailAddress: "",
-      remark: ""
+      dnkSeshuName: "",
+      dnkKoshuName: "",
+      dnkKoshuName2: "",
+      dnkAddress1: "",
+      dnkPhonenumber1: "",
+      dnkEmail1: "",
+      dnkBikou1: ""
     },
     defaultItem: {
-      seshuName: "",
-      koshuName: "",
-      koshuName2: "",
-      address: "",
-      phonenumber: "",
-      mailAddress: "",
-      remark: ""
+      dnkSeshuName: "",
+      dnkKoshuName: "",
+      dnkKoshuName2: "",
+      dnkAddress1: "",
+      dnkPhonenumber1: "",
+      dnkEmail1: "",
+      dnkBikou1: ""
     },
   }),
   computed: {
